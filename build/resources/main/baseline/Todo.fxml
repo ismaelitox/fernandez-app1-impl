@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.AmbientLight?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<SplitPane dividerPositions="0.45714285714285713, 0.4685714285714286" orientation="VERTICAL" prefHeight="527.0" prefWidth="602.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="baseline.TodoListController">
+    <items>
+        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="237.0" prefWidth="607.0">
+            <children>
+                <Button fx:id="addTask" layoutX="201.0" layoutY="103.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="73.0" text="Add Task" textOverrun="CLIP" />
+                <DatePicker fx:id="addDate" layoutX="14.0" layoutY="46.0" onAction="#showDateClicked" prefHeight="25.0" prefWidth="114.0">
+                    <effect>
+                        <Glow />
+                    </effect>
+                </DatePicker>
+                <TextField fx:id="itemDescriptionTextField" layoutX="278.0" layoutY="46.0" onAction="#inputItemDescription" prefHeight="25.0" prefWidth="314.0" promptText="Add Item Description..." />
+                <Button fx:id="showIncompleteTasks" layoutX="280.0" layoutY="103.0" mnemonicParsing="false" onAction="#showIncompleteTasks" text="Show Incomplete" />
+                <Button fx:id="showCompleteTasks" layoutX="406.0" layoutY="103.0" mnemonicParsing="false" onAction="#showCompleteTskClicked" text="Show Complete" />
+                <Button fx:id="showAllTasks" layoutX="524.0" layoutY="103.0" mnemonicParsing="false" onAction="#showAllTasksClicked" text="Show All " />
+                <Button fx:id="editTask" layoutX="291.0" layoutY="140.0" mnemonicParsing="false" onAction="#editTasksClicked" text="Edit Task" />
+                <Button fx:id="editDate" layoutX="364.0" layoutY="140.0" mnemonicParsing="false" onAction="#editDateClicked" text="Edit Selected Date" />
+                <Button fx:id="deleteTask" layoutX="497.0" layoutY="140.0" mnemonicParsing="false" onAction="#removeTaskClicked" text="Remove Task" />
+                <ProgressIndicator fx:id="showProgressMarker" layoutX="14.0" layoutY="135.0" prefHeight="41.0" prefWidth="68.0" progress="0.0" />
+                <Label layoutX="14.0" layoutY="103.0" prefHeight="17.0" prefWidth="92.0" text="\%  Complete" />
+                <MenuBar fx:id="openFileSaver" layoutY="1.0" stylesheets="@styles.css">
+                    <menus>
+                        <Menu mnemonicParsing="false" text="File">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="Close" />
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Edit">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="Delete" />
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Help">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="About" />
+                            </items>
+                        </Menu>
+                    </menus>
+                </MenuBar>
+                <Label layoutX="308.0" layoutY="12.0" text="Daily Task Manager" />
+                <TextField fx:id="itemNameTextField" layoutX="136.0" layoutY="46.0" onAction="#inputItemString" prefHeight="25.0" prefWidth="129.0" promptText="Add Item Name.." />
+                <Button fx:id="loadAllTasks" layoutX="201.0" layoutY="140.0" mnemonicParsing="false" onAction="#loadTasksClicked" text="Load Tasks" />
+                <Button fx:id="saveTask" layoutX="106.0" layoutY="103.0" mnemonicParsing="false" onAction="#saveCurrentTask" text="Save Tasks" />
+                <Button fx:id="newTask" layoutX="109.0" layoutY="143.0" mnemonicParsing="false" onAction="#newTasksCreate" text="New Task" />
+            </children>
+        </AnchorPane>
+        <AmbientLight color="CHARTREUSE" lightOn="true" />
+        <SplitPane dividerPositions="0.47611202635914335" prefHeight="210.0" prefWidth="607.0">
+            <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                    <children>
+                        <ListView fx:id="showComplete" prefHeight="276.0" prefWidth="286.0" />
+                    </children>
+                </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                    <children>
+                        <ListView fx:id="showUncomplete" layoutX="1.0" prefHeight="276.0" prefWidth="314.0" />
+                    </children>
+                </AnchorPane>
+            </items>
+        </SplitPane>
+    </items>
+</SplitPane>
